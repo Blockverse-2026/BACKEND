@@ -1,8 +1,39 @@
 import Team from "../models/team.model.js";
-import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+import bcrypt from "bcrypt";
 import asyncHandler from "../utils/asyncHandler.js";
-import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";
+import ApiError from "../utils/ApiError.js";
+import nodemailer from "nodemailer";
+
+dotenv.config();
+
+const {
+  JWT_ACCESS_SECRET,
+  JWT_REFRESH_SECRET,
+  ACCESS_TOKEN_EXPIRES,
+  REFRESH_TOKEN_EXPIRES,
+  MAIL_PASS,
+  MAIL_USER,
+} = process.env;
+
+function signAccessToken(team) {
+  return jwt.sign({ sub: team._id }, JWT_ACCESS_SECRET, {
+    expiresIn: ACCESS_TOKEN_EXPIRES || "1h",
+  });
+}
+
+function signRefreshToken(team) {
+  return jwt.sign({ sub: team._id }, JWT_REFRESH_SECRET, {
+    expiresIn: REFRESH_TOKEN_EXPIRES || "7d",
+  });
+}
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: { user: MAIL_USER, pass: MAIL_PASS },
+});
 
 const akgecEmailRegex = /^[a-zA-Z0-9._]+@akgec\.ac\.in$/;
 
@@ -28,7 +59,7 @@ const registerTeam = asyncHandler(async (req, res) => {
   }
 
   for (const member of members) {
-    if (!member.name || !member.email || !member.rollNo) {
+    if (!member.name || !member.email || !member.rollNo || !member.branch) {
       throw new ApiError(400, "Invalid team member details");
     }
     if (!akgecEmailRegex.test(member.email)) {
@@ -45,17 +76,52 @@ const registerTeam = asyncHandler(async (req, res) => {
 
   const team = await Team.create({
     teamId,
-    password,
+    password: passwordHash,
     year,
     members,
   });
 
   const teamResponse = team.toObject();
-  delete teamResponse.passwordHash;
+  delete teamResponse.password;
 
   return res
     .status(201)
     .json(new ApiResponse(201, teamResponse, "Team registered successfully"));
 });
 
-export { registerTeam };
+const loginTeam = asyncHandler(async (req, res) => {
+  let { teamId, password } = req.body;
+
+  if (!teamId || !password) {
+    throw new ApiError(400, "Team ID and password are required");
+  }
+
+  teamId = teamId.trim().toUpperCase();
+
+  const team = await Team.findOne({ teamId });
+  if (!team) {
+    throw new ApiError(401, "Invalid credentials");
+  }
+
+  const isPasswordValid = await bcrypt.compare(password, team.password);
+  if (!isPasswordValid) {
+    throw new ApiError(401, "Invalid credentials");
+  }
+
+  const accessToken = signAccessToken(team);
+  const refreshToken = signRefreshToken(team);
+
+  const teamResponse = team.toObject();
+  delete teamResponse.password;
+
+  return res.status(200).json(
+    new ApiResponse(
+      200,
+      { team: teamResponse, accessToken, refreshToken },
+      "Team login successful"
+    )
+  );
+});
+
+
+export { registerTeam, loginTeam };
