@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import Team from "./team.model.js";
 
-const playerClueSchema = new mongoose.Schema(
+const teamClueSchema = new mongoose.Schema(
   {
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +17,7 @@ const playerClueSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-playerClueSchema.index({ playerId: 1, clueId: 1 }, { unique: true });
+teamClueSchema.index({ teamId: 1, clueId: 1 }, { unique: true });
 
-const PlayerClue = mongoose.model("PlayerClue", playerClueSchema);
-export default PlayerClue;
+const TeamClue = mongoose.model("TeamClue", teamClueSchema);
+export default TeamClue;

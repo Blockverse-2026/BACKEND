@@ -20,7 +20,6 @@ const Round2QuestionSchema = new mongoose.Schema(
 
     order: {
       type: Number,
-      required: true,
     },
 
     question: {
@@ -37,11 +36,6 @@ const Round2QuestionSchema = new mongoose.Schema(
     tokenReward: {
       type: Number,
       default: 1,
-    },
-
-    isActive: {
-      type: Boolean,
-      default: true,
     },
   },
   { timestamps: true }

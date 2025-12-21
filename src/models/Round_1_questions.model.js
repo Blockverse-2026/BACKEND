@@ -33,11 +33,6 @@ const round1QuestionSchema = new mongoose.Schema(
       type: Number,
       default: 10,
     },
-
-    isActive: {
-      type: Boolean,
-      default: true,
-    },
   },
   { timestamps: true }
 );
