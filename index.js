@@ -14,7 +14,7 @@ import connectDB from "./src/db/db.connect.js";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 
 // Routes
-import teamRoutes from "../Backend/src/routes/team.route.js";
+import teamRoutes from "./src/routes/team.route.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
