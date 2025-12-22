@@ -3,35 +3,35 @@
     "clueId": "R2_Y1_C1",
     "year": 1,
     "title": "Starting Point",
-    "description": "focus on the basic definition related to the topic.",
+    "description": "Every system begins with a single assumption. If that assumption is wrong, everything built on it can still appear stable.",
     "tokenCost": 3
   },
   {
     "clueId": "R2_Y1_C2",
     "year": 1,
-    "title": "Concept Link",
-    "description": "the solution connects multiple ideas learned earlier.",
-    "tokenCost": 3
+    "title": "Connection Hint",
+    "description": "Nothing in the Realm exists alone. A correct step that ignores what comes before or after it is still an error.",
+    "tokenCost": 4
   },
   {
     "clueId": "R2_Y1_C3",
     "year": 1,
-    "title": "Logic Hint",
-    "description": "apply step by step reasoning instead of guessing.",
-    "tokenCost": 4
+    "title": "Security Clue",
+    "description": "In the Genova Realm, identity is noise. Validity is the only signal that determines trust.",
+    "tokenCost": 5
   },
   {
     "clueId": "R2_Y1_C4",
     "year": 1,
-    "title": "Keyword Focus",
-    "description": "one keyword from round 1 questions is important.",
-    "tokenCost": 4
+    "title": "Network Insight",
+    "description": "Control is safest when it appears distributed. Failure becomes visible only when a single voice remains.",
+    "tokenCost": 3
   },
   {
     "clueId": "R2_Y1_C5",
     "year": 1,
     "title": "Final Hint",
-    "description": "combine all clues to form a single clear answer.",
-    "tokenCost": 5
+    "description": "The system does not break from errors in parts. It evolves when all corrections align. Alignment is not repair.",
+    "tokenCost": 6
   }
 ]
