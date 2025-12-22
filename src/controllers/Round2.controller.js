@@ -5,7 +5,7 @@ import Team from "../models/team.model.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import ApiError from "../utils/ApiError.js";
-// import { emitLeaderboard } from "../utils/emitLeaderboard.js";
+import { emitLeaderboard } from "../utils/emitLeaderboard.js";
 
 export const getRound2Phase1Questions = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
@@ -78,7 +78,7 @@ export const submitRound2Phase1Answer = asyncHandler(async (req, res) => {
     $inc: { totalPoints: 5 },
   });
 
-  // await emitLeaderboard(req);
+  await emitLeaderboard(req);
 
   return res.json(
     new ApiResponse(
