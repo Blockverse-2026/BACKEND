@@ -1,40 +1,27 @@
 import mongoose from "mongoose";
 
-const storeClueSchema = new mongoose.Schema(
+const round2ClueSchema = new mongoose.Schema(
   {
     clueId: {
       type: String,
-      required: true,
       unique: true,
     },
 
-    round: {
+    year: {
       type: Number,
-      default: 2,
-    },
-
-    phase: {
-      type: Number,
-      default: 2,
-    },
-
-    title: {
-      type: String,
+      enum: [1, 2],
       required: true,
     },
 
-    description: {
-      type: String,
-      required: true,
-    },
+    title: String,
+    description: String,
 
     tokenCost: {
       type: Number,
-      required: true,
+      default: 2,
     },
   },
   { timestamps: true }
 );
 
-const StoreClue = mongoose.model("Round_2_phase2_StoreClue", storeClueSchema);
-export default StoreClue;
+export default mongoose.model("Round2Clue", round2ClueSchema);

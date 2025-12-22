@@ -4,16 +4,23 @@ import Team from "../models/team.model.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";
-// import { emitLeaderboard } from "../utils/emitLeaderboard.js";
+import { emitLeaderboard } from "../utils/emitLeaderboard.js";
 
 export const getRound1Questions = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
+
+  const team = await Team.findById(teamId).select("year");
+  if (!team) {
+    throw new ApiError(404, "Team not Found");
+  }
 
   const progress =
     (await Round1Progress.findOne({ teamId })) ||
     (await Round1Progress.create({ teamId }));
 
-  const questions = await Round1Question.find()
+  const questions = await Round1Question.find({
+    year: team.year,
+  })
     .sort({ order: 1 })
     .select("questionId order question pointReward");
 
@@ -29,6 +36,10 @@ export const getRound1Questions = asyncHandler(async (req, res) => {
 export const submitRound1Answer = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
   const { questionId, answer } = req.body;
+
+  if (!questionId || !answer) {
+    throw new ApiError(400, "Question ID and answer are required");
+  }
 
   const question = await Round1Question.findOne({
     questionId,
@@ -46,8 +57,9 @@ export const submitRound1Answer = asyncHandler(async (req, res) => {
   if (progress.solvedQuestions.includes(questionId)) {
     return res.json(new ApiResponse(200, null, "Already solved"));
   }
+  const normalizedAnswer = answer.trim().toLowerCase();
 
-  if (question.correctAnswer !== answer.toLowerCase()) {
+  if (question.correctAnswer !== normalizedAnswer) {
     throw new ApiError(400, "Incorrect Answer");
   }
 
@@ -64,7 +76,7 @@ export const submitRound1Answer = asyncHandler(async (req, res) => {
     $set: { "rounds.round1Completed": progress.completed },
   });
 
-  // emitLeaderboard(req);
+  await emitLeaderboard(req);
 
   res.json(new ApiResponse(200, { points: question.pointReward }, "Correct"));
 });

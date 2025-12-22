@@ -8,6 +8,11 @@ const round1QuestionSchema = new mongoose.Schema(
       unique: true,
     },
 
+    year: {
+      type: Number,
+      enum: [1, 2],
+      required: true,
+    },
     round: {
       type: Number,
       default: 1,

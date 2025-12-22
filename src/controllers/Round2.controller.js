@@ -10,6 +10,11 @@ import ApiError from "../utils/ApiError.js";
 export const getRound2Phase1Questions = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
 
+  const team = await Team.findById(teamId).select("year");
+  if (!team) {
+    throw new ApiError(404, "Team not Found");
+  }
+
   const progress =
     (await Round2Progress.findOne({ teamId })) ||
     (await Round2Progress.create({ teamId }));
@@ -18,7 +23,9 @@ export const getRound2Phase1Questions = asyncHandler(async (req, res) => {
     throw new ApiError(403, "Phase 1 completed");
   }
 
-  const questions = await Round2Question.find()
+  const questions = await Round2Question.find({
+    year: team.year,
+  })
     .sort({ order: 1 })
     .select("questionId order question tokenReward");
 
