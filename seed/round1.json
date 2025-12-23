@@ -4,7 +4,8 @@
     "year": 1,
     "order": 1,
     "question": "What is blockchain?",
-    "correctAnswer": "distributed ledger",
+    "options": ["Distributed ledger", "Central server", "Spreadsheet", "File system"],
+    "correctAnswer": "Distributed ledger",
     "pointReward": 10
   },
   {
@@ -12,6 +13,7 @@
     "year": 1,
     "order": 2,
     "question": "Which tag is used to create a paragraph in HTML?",
+    "options": ["<div>", "<p>", "<span>", "<h1>"],
     "correctAnswer": "<p>",
     "pointReward": 10
   },
@@ -20,6 +22,7 @@
     "year": 1,
     "order": 3,
     "question": "Which function is the entry point of a C program?",
+    "options": ["start()", "init()", "main()", "run()"],
     "correctAnswer": "main()",
     "pointReward": 10
   },
@@ -28,7 +31,8 @@
     "year": 1,
     "order": 4,
     "question": "What does CSS stand for?",
-    "correctAnswer": "cascading style sheets",
+    "options": ["Creative Style Sheets", "Colorful Style Sheets", "Cascading Style Sheets", "Computer Style Sheets"],
+    "correctAnswer": "Cascading Style Sheets",
     "pointReward": 10
   },
   {
@@ -36,7 +40,8 @@
     "year": 1,
     "order": 5,
     "question": "Which concept binds data and methods together?",
-    "correctAnswer": "encapsulation",
+    "options": ["Inheritance", "Polymorphism", "Encapsulation", "Abstraction"],
+    "correctAnswer": "Encapsulation",
     "pointReward": 10
   },
   {
@@ -44,6 +49,7 @@
     "year": 1,
     "order": 6,
     "question": "Which attribute is used to provide alternate text for an image?",
+    "options": ["title", "src", "alt", "href"],
     "correctAnswer": "alt",
     "pointReward": 10
   },
@@ -52,7 +58,8 @@
     "year": 1,
     "order": 7,
     "question": "Which consensus algorithm is used in Bitcoin?",
-    "correctAnswer": "proof of work",
+    "options": ["Proof of Stake", "Proof of Authority", "Proof of Work", "Delegated Proof"],
+    "correctAnswer": "Proof of Work",
     "pointReward": 10
   },
   {
@@ -60,6 +67,7 @@
     "year": 1,
     "order": 8,
     "question": "Which CSS property is used to add space inside an element?",
+    "options": ["margin", "border", "padding", "spacing"],
     "correctAnswer": "padding",
     "pointReward": 10
   },
@@ -68,6 +76,7 @@
     "year": 1,
     "order": 9,
     "question": "Which data type stores a single character?",
+    "options": ["int", "float", "char", "double"],
     "correctAnswer": "char",
     "pointReward": 10
   },
@@ -76,6 +85,7 @@
     "year": 1,
     "order": 10,
     "question": "Which HTML tag is used to create a hyperlink?",
+    "options": ["<link>", "<href>", "<a>", "<url>"],
     "correctAnswer": "<a>",
     "pointReward": 10
   },
@@ -85,7 +95,8 @@
     "year": 1,
     "order": 11,
     "question": "What is the first block in a blockchain called?",
-    "correctAnswer": "genesis block",
+    "options": ["Initial block", "Primary block", "Genesis block", "Root block"],
+    "correctAnswer": "Genesis block",
     "pointReward": 10
   },
   {
@@ -93,6 +104,7 @@
     "year": 1,
     "order": 12,
     "question": "Which CSS property is used to align text?",
+    "options": ["font-align", "text-align", "align", "position"],
     "correctAnswer": "text-align",
     "pointReward": 10
   },
@@ -101,6 +113,7 @@
     "year": 1,
     "order": 13,
     "question": "Which keyword is used to declare an integer variable?",
+    "options": ["integer", "num", "int", "var"],
     "correctAnswer": "int",
     "pointReward": 10
   },
@@ -109,7 +122,8 @@
     "year": 1,
     "order": 14,
     "question": "What does HTML stand for?",
-    "correctAnswer": "hypertext markup language",
+    "options": ["HighText Machine Language", "HyperText Markup Language", "HyperTool Markup Language", "Home Tool Markup Language"],
+    "correctAnswer": "HyperText Markup Language",
     "pointReward": 10
   },
   {
@@ -117,7 +131,8 @@
     "year": 1,
     "order": 15,
     "question": "Which blockchain platform supports smart contracts?",
-    "correctAnswer": "ethereum",
+    "options": ["Bitcoin", "Litecoin", "Ethereum", "Ripple"],
+    "correctAnswer": "Ethereum",
     "pointReward": 10
   },
 
@@ -126,7 +141,8 @@
     "year": 1,
     "order": 16,
     "question": "Which concept allows one interface with many implementations?",
-    "correctAnswer": "polymorphism",
+    "options": ["Encapsulation", "Inheritance", "Polymorphism", "Abstraction"],
+    "correctAnswer": "Polymorphism",
     "pointReward": 10
   },
   {
@@ -134,6 +150,7 @@
     "year": 1,
     "order": 17,
     "question": "Which CSS property is used to add space outside an element?",
+    "options": ["padding", "margin", "border", "spacing"],
     "correctAnswer": "margin",
     "pointReward": 10
   },
@@ -142,6 +159,7 @@
     "year": 1,
     "order": 18,
     "question": "Which operator is used for logical AND?",
+    "options": ["&", "&&", "|", "||"],
     "correctAnswer": "&&",
     "pointReward": 10
   },
@@ -150,6 +168,7 @@
     "year": 1,
     "order": 19,
     "question": "Which tag defines the largest heading?",
+    "options": ["<h6>", "<heading>", "<h1>", "<head>"],
     "correctAnswer": "<h1>",
     "pointReward": 10
   },
@@ -158,7 +177,8 @@
     "year": 1,
     "order": 20,
     "question": "Which type of network does blockchain use?",
-    "correctAnswer": "decentralized network",
+    "options": ["Centralized", "Client-server", "Decentralized", "Star network"],
+    "correctAnswer": "Decentralized",
     "pointReward": 10
   },
 
@@ -167,6 +187,7 @@
     "year": 1,
     "order": 21,
     "question": "Which CSS property is used to change text color?",
+    "options": ["font-color", "text-color", "color", "background"],
     "correctAnswer": "color",
     "pointReward": 10
   },
@@ -175,6 +196,7 @@
     "year": 1,
     "order": 22,
     "question": "Which keyword is used to define a constant?",
+    "options": ["final", "constant", "define", "const"],
     "correctAnswer": "const",
     "pointReward": 10
   },
@@ -183,6 +205,7 @@
     "year": 1,
     "order": 23,
     "question": "Which tag is used to create an ordered list?",
+    "options": ["<ul>", "<list>", "<ol>", "<li>"],
     "correctAnswer": "<ol>",
     "pointReward": 10
   },
@@ -191,14 +214,16 @@
     "year": 1,
     "order": 24,
     "question": "Which cryptography is commonly used in blockchain?",
-    "correctAnswer": "public key cryptography",
+    "options": ["Symmetric cryptography", "Public key cryptography", "Hash tables", "Caesar cipher"],
+    "correctAnswer": "Public key cryptography",
     "pointReward": 10
   },
   {
     "questionId": "R1_Y1_Q25",
     "year": 1,
     "order": 25,
-    "question": "Which symbol is used for class selector?",
+    "question": "Which symbol is used for class selector in CSS?",
+    "options": ["#", ".", "*", "%"],
     "correctAnswer": ".",
     "pointReward": 10
   },
@@ -208,23 +233,26 @@
     "year": 1,
     "order": 26,
     "question": "Which loop checks condition before execution?",
-    "correctAnswer": "while loop",
+    "options": ["do-while", "for", "while", "foreach"],
+    "correctAnswer": "while",
     "pointReward": 10
   },
   {
     "questionId": "R1_Y1_Q27",
     "year": 1,
     "order": 27,
-    "question": "What does \"HTTPS\" indicate about a website (the 'S' stands for)?",
-    "correctAnswer": "secure",
+    "question": "What does the 'S' in HTTPS stand for?",
+    "options": ["Safe", "Secure", "System", "Server"],
+    "correctAnswer": "Secure",
     "pointReward": 10
   },
   {
     "questionId": "R1_Y1_Q28",
     "year": 1,
     "order": 28,
-    "question": "Full form of RAM in computers?",
-    "correctAnswer": "random access memory",
+    "question": "Full form of RAM?",
+    "options": ["Read Access Memory", "Random Access Memory", "Rapid Action Memory", "Run Access Memory"],
+    "correctAnswer": "Random Access Memory",
     "pointReward": 10
   },
   {
@@ -232,7 +260,8 @@
     "year": 1,
     "order": 29,
     "question": "Which concept allows a class to acquire properties of another class?",
-    "correctAnswer": "inheritance",
+    "options": ["Polymorphism", "Encapsulation", "Inheritance", "Abstraction"],
+    "correctAnswer": "Inheritance",
     "pointReward": 10
   },
   {
@@ -240,6 +269,7 @@
     "year": 1,
     "order": 30,
     "question": "Which CSS property controls text size?",
+    "options": ["text-size", "font-style", "font-size", "size"],
     "correctAnswer": "font-size",
     "pointReward": 10
   },
@@ -249,6 +279,7 @@
     "year": 1,
     "order": 31,
     "question": "Which keyword is used to return a value from a function?",
+    "options": ["break", "exit", "return", "continue"],
     "correctAnswer": "return",
     "pointReward": 10
   },
@@ -257,6 +288,7 @@
     "year": 1,
     "order": 32,
     "question": "Which tag is used to insert an image?",
+    "options": ["<image>", "<img>", "<pic>", "<src>"],
     "correctAnswer": "<img>",
     "pointReward": 10
   },
@@ -265,7 +297,8 @@
     "year": 1,
     "order": 33,
     "question": "What is mining in blockchain?",
-    "correctAnswer": "process of validating transactions",
+    "options": ["Creating wallets", "Validating transactions", "Hacking blocks", "Sending coins"],
+    "correctAnswer": "Validating transactions",
     "pointReward": 10
   },
   {
@@ -273,6 +306,7 @@
     "year": 1,
     "order": 34,
     "question": "Which symbol is used for id selector?",
+    "options": ["#", ".", "*", "&"],
     "correctAnswer": "#",
     "pointReward": 10
   },
@@ -281,6 +315,7 @@
     "year": 1,
     "order": 35,
     "question": "Which header file is required for printf()?",
+    "options": ["stdlib.h", "conio.h", "stdio.h", "string.h"],
     "correctAnswer": "stdio.h",
     "pointReward": 10
   },
@@ -290,6 +325,7 @@
     "year": 1,
     "order": 36,
     "question": "Which tag is used to create a table row?",
+    "options": ["<td>", "<th>", "<tr>", "<table>"],
     "correctAnswer": "<tr>",
     "pointReward": 10
   },
@@ -298,7 +334,8 @@
     "year": 1,
     "order": 37,
     "question": "What is digital money in blockchain called?",
-    "correctAnswer": "cryptocurrency",
+    "options": ["E-money", "Virtual cash", "Cryptocurrency", "Token"],
+    "correctAnswer": "Cryptocurrency",
     "pointReward": 10
   },
   {
@@ -306,22 +343,25 @@
     "year": 1,
     "order": 38,
     "question": "What does OOPS stand for?",
-    "correctAnswer": "object oriented programming system",
+    "options": ["Object Oriented Programming System", "Open Object Programming Style", "Object Operation Processing System", "Only Object Programming System"],
+    "correctAnswer": "Object Oriented Programming System",
     "pointReward": 10
   },
   {
     "questionId": "R1_Y1_Q39",
     "year": 1,
     "order": 39,
-    "question": "In 5G networks compared to 4G, the main improvement is in what two aspects?",
-    "correctAnswer": "speed and latency",
+    "question": "Main improvement of 5G over 4G?",
+    "options": ["Battery life", "Coverage", "Speed and Latency", "Cost"],
+    "correctAnswer": "Speed and Latency",
     "pointReward": 10
   },
   {
     "questionId": "R1_Y1_Q40",
     "year": 1,
     "order": 40,
-    "question": "Which symbol is used to end a statement in C?",
+    "question": "Which symbol ends a statement in C?",
+    "options": [".", ":", ";", ","],
     "correctAnswer": ";",
     "pointReward": 10
   },
@@ -331,7 +371,8 @@
     "year": 1,
     "order": 41,
     "question": "What is a node in blockchain?",
-    "correctAnswer": "participant in the network",
+    "options": ["Server", "Miner only", "Participant in network", "Wallet"],
+    "correctAnswer": "Participant in network",
     "pointReward": 10
   },
   {
@@ -339,6 +380,7 @@
     "year": 1,
     "order": 42,
     "question": "Which CSS property makes text bold?",
+    "options": ["font-style", "font-weight", "text-bold", "weight"],
     "correctAnswer": "font-weight",
     "pointReward": 10
   },
@@ -346,15 +388,17 @@
     "questionId": "R1_Y1_Q43",
     "year": 1,
     "order": 43,
-    "question": "Which technology enables video calls on WhatsApp and Zoom? (two words)?",
-    "correctAnswer": "internet protocol",
+    "question": "Which technology enables video calls?",
+    "options": ["Bluetooth", "Internet Protocol", "NFC", "Satellite"],
+    "correctAnswer": "Internet Protocol",
     "pointReward": 10
   },
   {
     "questionId": "R1_Y1_Q44",
     "year": 1,
     "order": 44,
-    "question": "Which tag is used to create a line break?",
+    "question": "Which tag creates a line break?",
+    "options": ["<lb>", "<break>", "<br>", "<hr>"],
     "correctAnswer": "<br>",
     "pointReward": 10
   },
@@ -363,7 +407,8 @@
     "year": 1,
     "order": 45,
     "question": "What ensures transparency in blockchain?",
-    "correctAnswer": "public ledger",
+    "options": ["Private access", "Encryption", "Public ledger", "Password"],
+    "correctAnswer": "Public ledger",
     "pointReward": 10
   },
 
@@ -372,6 +417,7 @@
     "year": 1,
     "order": 46,
     "question": "Which operator is used for assignment?",
+    "options": ["==", "=", "+=", "!="],
     "correctAnswer": "=",
     "pointReward": 10
   },
@@ -379,8 +425,9 @@
     "questionId": "R1_Y1_Q47",
     "year": 1,
     "order": 47,
-    "question": "In smartphones, what does \"GHz\" measure in processor speed?",
-    "correctAnswer": "gigahertz",
+    "question": "What does GHz measure?",
+    "options": ["Voltage", "Memory", "Clock speed", "Storage"],
+    "correctAnswer": "Clock speed",
     "pointReward": 10
   },
   {
@@ -388,15 +435,17 @@
     "year": 1,
     "order": 48,
     "question": "What is a blockchain transaction?",
-    "correctAnswer": "data exchange",
+    "options": ["Block creation", "Data exchange", "Mining reward", "Hash value"],
+    "correctAnswer": "Data exchange",
     "pointReward": 10
   },
   {
     "questionId": "R1_Y1_Q49",
     "year": 1,
     "order": 49,
-    "question": "What property ensures blockchain data cannot be changed?",
-    "correctAnswer": "immutability",
+    "question": "Which property prevents blockchain data from being changed?",
+    "options": ["Transparency", "Decentralization", "Immutability", "Consensus"],
+    "correctAnswer": "Immutability",
     "pointReward": 10
   },
   {
@@ -404,416 +453,466 @@
     "year": 1,
     "order": 50,
     "question": "What keeps blockchain secure?",
-    "correctAnswer": "cryptography",
+    "options": ["Password", "Firewall", "Cryptography", "Central authority"],
+    "correctAnswer": "Cryptography",
     "pointReward": 10
   },
-    {
-      "questionId": "R1_Y2_Q1",
-      "year": 2,
-      "order": 1,
-      "question": "What is blockchain?",
-      "correctAnswer": "distributed ledger",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q2",
-      "year": 2,
-      "order": 2,
-      "question": "Which CSS property controls the stacking order of elements?",
-      "correctAnswer": "z-index",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q3",
-      "year": 2,
-      "order": 3,
-      "question": "Which JavaScript concept allows a function to remember its lexical scope?",
-      "correctAnswer": "closure",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q4",
-      "year": 2,
-      "order": 4,
-      "question": "Which C++ feature supports runtime polymorphism?",
-      "correctAnswer": "virtual functions",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q5",
-      "year": 2,
-      "order": 5,
-      "question": "Which Python data type stores key-value pairs?",
-      "correctAnswer": "dictionary",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q6",
-      "year": 2,
-      "order": 6,
-      "question": "What is the first block in a blockchain called?",
-      "correctAnswer": "genesis block",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q7",
-      "year": 2,
-      "order": 7,
-      "question": "Which CSS layout module is best for one-dimensional layouts?",
-      "correctAnswer": "flexbox",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q8",
-      "year": 2,
-      "order": 8,
-      "question": "Which JavaScript method converts a JSON string into an object?",
-      "correctAnswer": "json.parse()",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q9",
-      "year": 2,
-      "order": 9,
-      "question": "Which OOP principle focuses on exposing only essential features?",
-      "correctAnswer": "abstraction",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q10",
-      "year": 2,
-      "order": 10,
-      "question": "Which C++ keyword prevents inheritance?",
-      "correctAnswer": "final",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q11",
-      "year": 2,
-      "order": 11,
-      "question": "Which network type is used in blockchain?",
-      "correctAnswer": "decentralized network",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q12",
-      "year": 2,
-      "order": 12,
-      "question": "Which CSS unit is relative to the root font size?",
-      "correctAnswer": "rem",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q13",
-      "year": 2,
-      "order": 13,
-      "question": "Which JavaScript keyword declares a block-scoped variable?",
-      "correctAnswer": "let",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q14",
-      "year": 2,
-      "order": 14,
-      "question": "Which OOP relationship represents a has-a relationship?",
-      "correctAnswer": "association",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q15",
-      "year": 2,
-      "order": 15,
-      "question": "Which Python keyword is used to handle exceptions?",
-      "correctAnswer": "try-except",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q16",
-      "year": 2,
-      "order": 16,
-      "question": "What is a block in blockchain?",
-      "correctAnswer": "collection of transactions",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q17",
-      "year": 2,
-      "order": 17,
-      "question": "Which CSS function allows calculations?",
-      "correctAnswer": "calc()",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q18",
-      "year": 2,
-      "order": 18,
-      "question": "Which JavaScript array method filters elements?",
-      "correctAnswer": "filter()",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q19",
-      "year": 2,
-      "order": 19,
-      "question": "Which C++ operator is used for dynamic memory allocation?",
-      "correctAnswer": "new",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q20",
-      "year": 2,
-      "order": 20,
-      "question": "Which Python function returns the length of an object?",
-      "correctAnswer": "len()",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q21",
-      "year": 2,
-      "order": 21,
-      "question": "What links blocks together in blockchain?",
-      "correctAnswer": "cryptographic hash",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q22",
-      "year": 2,
-      "order": 22,
-      "question": "Which CSS property aligns items vertically in Flexbox?",
-      "correctAnswer": "align-items",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q23",
-      "year": 2,
-      "order": 23,
-      "question": "Which JavaScript feature enables asynchronous operations?",
-      "correctAnswer": "promise",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q24",
-      "year": 2,
-      "order": 24,
-      "question": "Which OOP concept promotes code reuse?",
-      "correctAnswer": "inheritance",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q25",
-      "year": 2,
-      "order": 25,
-      "question": "Which Python feature allows functions inside functions?",
-      "correctAnswer": "nested functions",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q26",
-      "year": 2,
-      "order": 26,
-      "question": "What is a node in blockchain?",
-      "correctAnswer": "participant in the network",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q27",
-      "year": 2,
-      "order": 27,
-      "question": "Which CSS selector has the highest specificity?",
-      "correctAnswer": "inline style",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q28",
-      "year": 2,
-      "order": 28,
-      "question": "Which JavaScript function runs code after a delay?",
-      "correctAnswer": "settimeout()",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q29",
-      "year": 2,
-      "order": 29,
-      "question": "Which C++ feature allows compile-time polymorphism?",
-      "correctAnswer": "function overloading",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q30",
-      "year": 2,
-      "order": 30,
-      "question": "Which Python protocol supports iteration?",
-      "correctAnswer": "iterator protocol",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q31",
-      "year": 2,
-      "order": 31,
-      "question": "What ensures security in blockchain?",
-      "correctAnswer": "cryptography",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q32",
-      "year": 2,
-      "order": 32,
-      "question": "Which CSS property controls content overflow?",
-      "correctAnswer": "overflow",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q33",
-      "year": 2,
-      "order": 33,
-      "question": "Which JavaScript operator spreads elements?",
-      "correctAnswer": "spread operator (...)",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q34",
-      "year": 2,
-      "order": 34,
-      "question": "Which OOP concept restricts direct access to data?",
-      "correctAnswer": "encapsulation",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q35",
-      "year": 2,
-      "order": 35,
-      "question": "Which blockchain feature makes data unchangeable?",
-      "correctAnswer": "immutability",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q36",
-      "year": 2,
-      "order": 36,
-      "question": "Which CSS property is used for smooth animations?",
-      "correctAnswer": "transition",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q37",
-      "year": 2,
-      "order": 37,
-      "question": "What is cryptocurrency?",
-      "correctAnswer": "digital currency",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q38",
-      "year": 2,
-      "order": 38,
-      "question": "Which JavaScript statement handles errors?",
-      "correctAnswer": "try...catch",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q39",
-      "year": 2,
-      "order": 39,
-      "question": "Which C++ concept prevents object copying?",
-      "correctAnswer": "deleted copy constructor",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q40",
-      "year": 2,
-      "order": 40,
-      "question": "Which Python keyword creates anonymous functions?",
-      "correctAnswer": "lambda",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q41",
-      "year": 2,
-      "order": 41,
-      "question": "Which CSS property defines grid columns?",
-      "correctAnswer": "grid-template-columns",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q42",
-      "year": 2,
-      "order": 42,
-      "question": "What is mining in blockchain?",
-      "correctAnswer": "process of validating transactions",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q43",
-      "year": 2,
-      "order": 43,
-      "question": "Which JavaScript keyword refers to the current object?",
-      "correctAnswer": "this",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q44",
-      "year": 2,
-      "order": 44,
-      "question": "Which OOP concept allows different behaviors for the same method?",
-      "correctAnswer": "polymorphism",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q45",
-      "year": 2,
-      "order": 45,
-      "question": "Which Python built-in function converts input to integer?",
-      "correctAnswer": "int()",
-      "pointReward": 10
-    },
-  
-    {
-      "questionId": "R1_Y2_Q46",
-      "year": 2,
-      "order": 46,
-      "question": "Which CSS pseudo-class applies on mouse hover?",
-      "correctAnswer": ":hover",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q47",
-      "year": 2,
-      "order": 47,
-      "question": "Which blockchain platform supports smart contracts?",
-      "correctAnswer": "ethereum",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q48",
-      "year": 2,
-      "order": 48,
-      "question": "What will typeof null return in JavaScript?",
-      "correctAnswer": "object",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q49",
-      "year": 2,
-      "order": 49,
-      "question": "Which C++ keyword allocates memory at runtime?",
-      "correctAnswer": "new",
-      "pointReward": 10
-    },
-    {
-      "questionId": "R1_Y2_Q50",
-      "year": 2,
-      "order": 50,
-      "question": "What is a smart contract?",
-      "correctAnswer": "self-executing contract",
-      "pointReward": 10
-    }  
+  {
+    "questionId": "R1_Y2_Q1",
+    "year": 2,
+    "order": 1,
+    "question": "What is blockchain?",
+    "options": ["Distributed ledger", "Central database", "Cloud storage", "Private server"],
+    "correctAnswer": "Distributed ledger",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q2",
+    "year": 2,
+    "order": 2,
+    "question": "Which CSS property controls the stacking order of elements?",
+    "options": ["position", "overflow", "z-index", "display"],
+    "correctAnswer": "z-index",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q3",
+    "year": 2,
+    "order": 3,
+    "question": "Which JavaScript concept allows a function to remember its lexical scope?",
+    "options": ["Hoisting", "Closure", "Callback", "Prototype"],
+    "correctAnswer": "Closure",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q4",
+    "year": 2,
+    "order": 4,
+    "question": "Which C++ feature supports runtime polymorphism?",
+    "options": ["Templates", "Function overloading", "Virtual functions", "Inline functions"],
+    "correctAnswer": "Virtual functions",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q5",
+    "year": 2,
+    "order": 5,
+    "question": "Which Python data type stores key-value pairs?",
+    "options": ["List", "Tuple", "Dictionary", "Set"],
+    "correctAnswer": "Dictionary",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q6",
+    "year": 2,
+    "order": 6,
+    "question": "What is the first block in a blockchain called?",
+    "options": ["Initial block", "Primary block", "Genesis block", "Root block"],
+    "correctAnswer": "Genesis block",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q7",
+    "year": 2,
+    "order": 7,
+    "question": "Which CSS layout module is best for one-dimensional layouts?",
+    "options": ["Grid", "Flexbox", "Float", "Position"],
+    "correctAnswer": "Flexbox",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q8",
+    "year": 2,
+    "order": 8,
+    "question": "Which JavaScript method converts a JSON string into an object?",
+    "options": ["JSON.stringify()", "JSON.parse()", "Object.parse()", "parseJSON()"],
+    "correctAnswer": "JSON.parse()",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q9",
+    "year": 2,
+    "order": 9,
+    "question": "Which OOP principle focuses on exposing only essential features?",
+    "options": ["Inheritance", "Encapsulation", "Abstraction", "Polymorphism"],
+    "correctAnswer": "Abstraction",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q10",
+    "year": 2,
+    "order": 10,
+    "question": "Which C++ keyword prevents inheritance?",
+    "options": ["static", "final", "const", "private"],
+    "correctAnswer": "final",
+    "pointReward": 10
+  },
+
+  {
+    "questionId": "R1_Y2_Q11",
+    "year": 2,
+    "order": 11,
+    "question": "Which network type is used in blockchain?",
+    "options": ["Centralized", "Client-server", "Decentralized network", "Star network"],
+    "correctAnswer": "Decentralized network",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q12",
+    "year": 2,
+    "order": 12,
+    "question": "Which CSS unit is relative to the root font size?",
+    "options": ["em", "px", "rem", "%"],
+    "correctAnswer": "rem",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q13",
+    "year": 2,
+    "order": 13,
+    "question": "Which JavaScript keyword declares a block-scoped variable?",
+    "options": ["var", "const", "let", "static"],
+    "correctAnswer": "let",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q14",
+    "year": 2,
+    "order": 14,
+    "question": "Which OOP relationship represents a has-a relationship?",
+    "options": ["Inheritance", "Polymorphism", "Association", "Abstraction"],
+    "correctAnswer": "Association",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q15",
+    "year": 2,
+    "order": 15,
+    "question": "Which Python keyword is used to handle exceptions?",
+    "options": ["catch", "handle", "try-except", "error"],
+    "correctAnswer": "try-except",
+    "pointReward": 10
+  },
+
+  {
+    "questionId": "R1_Y2_Q16",
+    "year": 2,
+    "order": 16,
+    "question": "What is a block in blockchain?",
+    "options": ["Single transaction", "Collection of transactions", "Hash value", "Mining reward"],
+    "correctAnswer": "Collection of transactions",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q17",
+    "year": 2,
+    "order": 17,
+    "question": "Which CSS function allows calculations?",
+    "options": ["math()", "calc()", "compute()", "formula()"],
+    "correctAnswer": "calc()",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q18",
+    "year": 2,
+    "order": 18,
+    "question": "Which JavaScript array method filters elements?",
+    "options": ["map()", "reduce()", "filter()", "find()"],
+    "correctAnswer": "filter()",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q19",
+    "year": 2,
+    "order": 19,
+    "question": "Which C++ operator is used for dynamic memory allocation?",
+    "options": ["malloc", "alloc", "new", "create"],
+    "correctAnswer": "new",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q20",
+    "year": 2,
+    "order": 20,
+    "question": "Which Python function returns the length of an object?",
+    "options": ["count()", "size()", "len()", "length()"],
+    "correctAnswer": "len()",
+    "pointReward": 10
+  },
+
+  {
+    "questionId": "R1_Y2_Q21",
+    "year": 2,
+    "order": 21,
+    "question": "What links blocks together in blockchain?",
+    "options": ["Index number", "Timestamp", "Cryptographic hash", "Nonce"],
+    "correctAnswer": "Cryptographic hash",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q22",
+    "year": 2,
+    "order": 22,
+    "question": "Which CSS property aligns items vertically in Flexbox?",
+    "options": ["justify-content", "align-content", "align-items", "place-items"],
+    "correctAnswer": "align-items",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q23",
+    "year": 2,
+    "order": 23,
+    "question": "Which JavaScript feature enables asynchronous operations?",
+    "options": ["Callback", "Promise", "Loop", "Closure"],
+    "correctAnswer": "Promise",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q24",
+    "year": 2,
+    "order": 24,
+    "question": "Which OOP concept promotes code reuse?",
+    "options": ["Encapsulation", "Abstraction", "Inheritance", "Polymorphism"],
+    "correctAnswer": "Inheritance",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q25",
+    "year": 2,
+    "order": 25,
+    "question": "Which Python feature allows functions inside functions?",
+    "options": ["Lambda", "Decorators", "Nested functions", "Generators"],
+    "correctAnswer": "Nested functions",
+    "pointReward": 10
+  },
+
+  {
+    "questionId": "R1_Y2_Q26",
+    "year": 2,
+    "order": 26,
+    "question": "What is a node in blockchain?",
+    "options": ["Server only", "Wallet", "Participant in the network", "Block creator"],
+    "correctAnswer": "Participant in the network",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q27",
+    "year": 2,
+    "order": 27,
+    "question": "Which CSS selector has the highest specificity?",
+    "options": ["Class selector", "ID selector", "Inline style", "Element selector"],
+    "correctAnswer": "Inline style",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q28",
+    "year": 2,
+    "order": 28,
+    "question": "Which JavaScript function runs code after a delay?",
+    "options": ["setInterval()", "delay()", "setTimeout()", "wait()"],
+    "correctAnswer": "setTimeout()",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q29",
+    "year": 2,
+    "order": 29,
+    "question": "Which C++ feature allows compile-time polymorphism?",
+    "options": ["Virtual functions", "Function overloading", "Inheritance", "Dynamic casting"],
+    "correctAnswer": "Function overloading",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q30",
+    "year": 2,
+    "order": 30,
+    "question": "Which Python protocol supports iteration?",
+    "options": ["Iterable protocol", "Iterator protocol", "Sequence protocol", "Loop protocol"],
+    "correctAnswer": "Iterator protocol",
+    "pointReward": 10
+  },
+
+  {
+    "questionId": "R1_Y2_Q31",
+    "year": 2,
+    "order": 31,
+    "question": "What ensures security in blockchain?",
+    "options": ["Password", "Firewall", "Cryptography", "Central authority"],
+    "correctAnswer": "Cryptography",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q32",
+    "year": 2,
+    "order": 32,
+    "question": "Which CSS property controls content overflow?",
+    "options": ["display", "visibility", "overflow", "clip"],
+    "correctAnswer": "overflow",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q33",
+    "year": 2,
+    "order": 33,
+    "question": "Which JavaScript operator spreads elements?",
+    "options": ["Rest operator", "Spread operator (...)", "Concat operator", "Assign operator"],
+    "correctAnswer": "Spread operator (...)",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q34",
+    "year": 2,
+    "order": 34,
+    "question": "Which OOP concept restricts direct access to data?",
+    "options": ["Inheritance", "Encapsulation", "Abstraction", "Polymorphism"],
+    "correctAnswer": "Encapsulation",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q35",
+    "year": 2,
+    "order": 35,
+    "question": "Which blockchain feature makes data unchangeable?",
+    "options": ["Transparency", "Consensus", "Immutability", "Decentralization"],
+    "correctAnswer": "Immutability",
+    "pointReward": 10
+  },
+
+  {
+    "questionId": "R1_Y2_Q36",
+    "year": 2,
+    "order": 36,
+    "question": "Which CSS property is used for smooth animations?",
+    "options": ["animation", "transform", "transition", "motion"],
+    "correctAnswer": "transition",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q37",
+    "year": 2,
+    "order": 37,
+    "question": "What is cryptocurrency?",
+    "options": ["Physical money", "Digital currency", "Bank note", "Token card"],
+    "correctAnswer": "Digital currency",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q38",
+    "year": 2,
+    "order": 38,
+    "question": "Which JavaScript statement handles errors?",
+    "options": ["throw", "catch", "try...catch", "error"],
+    "correctAnswer": "try...catch",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q39",
+    "year": 2,
+    "order": 39,
+    "question": "Which C++ concept prevents object copying?",
+    "options": ["Move constructor", "Deleted copy constructor", "Virtual destructor", "Const object"],
+    "correctAnswer": "Deleted copy constructor",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q40",
+    "year": 2,
+    "order": 40,
+    "question": "Which Python keyword creates anonymous functions?",
+    "options": ["def", "func", "lambda", "anon"],
+    "correctAnswer": "lambda",
+    "pointReward": 10
+  },
+
+  {
+    "questionId": "R1_Y2_Q41",
+    "year": 2,
+    "order": 41,
+    "question": "Which CSS property defines grid columns?",
+    "options": ["grid-columns", "grid-template-columns", "grid-auto-columns", "column-template"],
+    "correctAnswer": "grid-template-columns",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q42",
+    "year": 2,
+    "order": 42,
+    "question": "What is mining in blockchain?",
+    "options": ["Creating wallets", "Validating transactions", "Sending coins", "Storing data"],
+    "correctAnswer": "Validating transactions",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q43",
+    "year": 2,
+    "order": 43,
+    "question": "Which JavaScript keyword refers to the current object?",
+    "options": ["self", "object", "this", "that"],
+    "correctAnswer": "this",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q44",
+    "year": 2,
+    "order": 44,
+    "question": "Which OOP concept allows different behaviors for the same method?",
+    "options": ["Inheritance", "Encapsulation", "Abstraction", "Polymorphism"],
+    "correctAnswer": "Polymorphism",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q45",
+    "year": 2,
+    "order": 45,
+    "question": "Which Python built-in function converts input to integer?",
+    "options": ["str()", "float()", "int()", "input()"],
+    "correctAnswer": "int()",
+    "pointReward": 10
+  },
+
+  {
+    "questionId": "R1_Y2_Q46",
+    "year": 2,
+    "order": 46,
+    "question": "Which CSS pseudo-class applies on mouse hover?",
+    "options": [":active", ":focus", ":hover", ":visited"],
+    "correctAnswer": ":hover",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q47",
+    "year": 2,
+    "order": 47,
+    "question": "Which blockchain platform supports smart contracts?",
+    "options": ["Bitcoin", "Litecoin", "Ethereum", "Dogecoin"],
+    "correctAnswer": "Ethereum",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q48",
+    "year": 2,
+    "order": 48,
+    "question": "What will typeof null return in JavaScript?",
+    "options": ["null", "undefined", "object", "number"],
+    "correctAnswer": "object",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q49",
+    "year": 2,
+    "order": 49,
+    "question": "Which C++ keyword allocates memory at runtime?",
+    "options": ["malloc", "alloc", "new", "create"],
+    "correctAnswer": "new",
+    "pointReward": 10
+  },
+  {
+    "questionId": "R1_Y2_Q50",
+    "year": 2,
+    "order": 50,
+    "question": "What is a smart contract?",
+    "options": ["Legal document", "Manual agreement", "Self-executing contract", "Digital signature"],
+    "correctAnswer": "Self-executing contract",
+    "pointReward": 10
+  }
 ]

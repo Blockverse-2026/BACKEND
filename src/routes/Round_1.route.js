@@ -2,7 +2,7 @@ import express from "express";
 import {
   submitRound1Answer,
   getRound1Questions,
-} from "../controllers/Round1.controller.js";
+} from "../controllers/Round1.cotroller.js";
 import { protect } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
