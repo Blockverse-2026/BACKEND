@@ -41,8 +41,8 @@ export const submitRound1Answer = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Question ID and correct option is required");
   }
 
-  const question = await Round1Question.findById(questionId).select(
-    "+correctAnswer +year +pointreward"
+  const question = await Round1Question.findOne({ questionId }).select(
+    "+correctAnswer +pointReward"
   );
 
   if (!question) {
