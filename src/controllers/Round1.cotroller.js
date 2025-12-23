@@ -41,9 +41,9 @@ export const submitRound1Answer = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Question ID and correct option is required");
   }
 
-  const question = await Round1Question.findOne({
-    questionId,
-  }).select("+correctAnswer +year");
+  const question = await Round1Question.findById(questionId).select(
+    "+correctAnswer +year +pointreward"
+  );
 
   if (!question) {
     throw new ApiError(404, "Round 1 question not found");
@@ -57,17 +57,16 @@ export const submitRound1Answer = asyncHandler(async (req, res) => {
   if (progress.solvedQuestions.includes(questionId)) {
     return res.json(new ApiResponse(200, null, "Already solved"));
   }
+  const correct = question.correctAnswer.trim().toLowerCase();
+  const selected = selectedOption.trim().toLowerCase();
 
-  if (typeof selectedOption !== "string") {
-    throw new ApiError(400, "Invalid option type");
-  }
-
-  if (question.correctAnswer.toLowerCase() !== selectedOption.toLowerCase()) {
-    throw new ApiError(400, "Incorrect Answer");
+  if (correct !== selected) {
+    return res.json(
+      new ApiResponse(200, { correct: false }, "Incorrect answer")
+    );
   }
 
   progress.solvedQuestions.push(questionId);
-
   if (progress.solvedQuestions.length === 50) {
     progress.completed = true;
   }
@@ -76,7 +75,7 @@ export const submitRound1Answer = asyncHandler(async (req, res) => {
 
   await Team.findByIdAndUpdate(teamId, {
     $inc: { totalPoints: question.pointReward },
-    $set: { "rounds.round1Completed": progress.completed },
+    // $set: { "rounds.round1Completed": progress.completed },
   });
 
   await emitLeaderboard(req);
