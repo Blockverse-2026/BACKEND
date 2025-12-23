@@ -1,69 +1,157 @@
-import Puzzle from "../models/Puzzle.js";
-import Round1State from "../models/Round1State.js";
-import ApiError from "../utils/ApiResponse.js";
+import Round1Question from "../models/Round_1_questions.model.js";
+import Round1Progress from "../models/Round1_progress.model.js";
+import asyncHandler from "../utils/asyncHandler.js";
+import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";
-import asyncHandler from "../utilsasyncHandler.js";
 
-const ROUND_1_DURATION_MS = 30 * 6 * 1000;
+const ROUND_1_DURATION_MS = 30 * 60 * 1000;
+const POINTS_PER_CORRECT = 5;
 
-/**
- * GET /round1/init
- * Initializes Round 1 for a team or resumes existing state
- *
- * NOTE:
- * req.teamId MUST be set by auth middleware.
- * This controller does NOT handle JWT or auth logic.
- */
-const initRound1 = asyncHandler(async (req,res)=> {
-    const teamId = req.teamId;
-    if(!teamId) {
-        throw new ApiError(401, "Unauthorized");
-    }
-    let roundState = await Round1State.findOne({ team: teanId });
-    if (!roundState) {
-        const puzlles = await Puzzle.find({}, "_id");
-        if (!puzzles.length) {
-            throw new ApiError(500, "No puzzles configured for Round 1");
-        }
-        const ShuffledPuzzleIds = puzzles
-        .map((p) => p._id)
-        .sort(() => Math.random() - 0.5);
+export const getRound1Questions = asyncHandler(async (req, res) => {
+  const teamId = req.teamId;
 
-        roundState = await Round1State.create({
-            team: teamId,
-            puzzleOrder: ShuffledPuzzleIds,
-            solvedPuzzles: [],
-            unlockedFragments: [],
-            score: 0,
-            startedAt: new Date(),
-        });
+  if (!teamId) {
+    throw new ApiError(401, "Unauthorized");
+  }
+
+  let progress = await Round1Progress.findOne({ teamId });
+
+  if (!progress) {
+    const questions = await Round1Question.find().select("_id");
+
+    if (!questions.length) {
+      throw new ApiError(500, "No Round 1 questions configured");
     }
 
-    const elapsedMs = Date.now() - roundState.startedAt.getTime();
-    const remainingMs = Math.max(ROUND_1_DURAION_MS - elapsedMs, 0);
+    const shuffledOrder = questions
+      .map((q) => q._id)
+      .sort(() => Math.random() - 0.5);
 
-    const puzzles = await Puzzle.find(
-        {_id: { $in: roundState.puzzleOrder }},
-        "question answerType fragmentId"
-    );
-    const puzzleMap = new Map(
-        puzzles.map((p) => [p._id.toString(). p])
-    );
+    progress = await Round1Progress.create({
+      teamId,
+      questionOrder: shuffledOrder,
+      solvedQuestions: [],
+      score: 0,
+      startedAt: new Date(),
+    });
+  }
 
-    const orderedPuzzles = roundState.puzzleOrder.map((id)=> puzzleMap,get(id.toString()))
+  let needsSave = false;
+
+  if (!progress.questionOrder || !Array.isArray(progress.questionOrder)) {
+  const questions = await Round1Question.find().select("_id");
+
+  if (!questions.length) {
+    throw new ApiError(500, "No Round 1 questions configured");
+  }
+
+  progress.questionOrder = questions
+    .map((q) => q._id)
+    .sort(() => Math.random() - 0.5);
+
+  needsSave = true;;
+}
+
+  if (!progress.startedAt) {
+  progress.startedAt = new Date();
+  needsSave = true;;
+}
+
+if (needsSave) {
+  await progress.save();
+}
+
+const elapsed = Date.now() - progress.startedAt.getTime();
+const remainingTime = Math.max(ROUND_1_DURATION_MS - elapsed, 0);
+
+  const questions = await Round1Question.find(
+    { _id: { $in: progress.questionOrder } },
+    "questionId question"
+  );
+
+  const questionMap = new Map(
+    questions.map((q) => [q._id.toString(), q])
+  );
+
+  const orderedQuestions = progress.questionOrder
+    .map((id) => questionMap.get(id.toString()))
     .filter(Boolean);
 
-    return res.status(200).json(
-        new ApiResponse(
-            200,
-            {
-                puzzles: orderedPuzzles,
-                solvedPuzzless: roundState.solvedPuzzles,
-                score: roundState.score,
-                timeRemmaingMs: remainingMs,
-            },
-            "Round 1 initialized"
-        )
-    );
+  return res.json(
+    new ApiResponse(200, {
+      totalQuestions: orderedQuestions.length,
+      solvedCount: progress.solvedQuestions.length,
+      score: progress.score,
+      timeRemainingMs: remainingTime,
+      questions: orderedQuestions,
+    })
+  );
 });
-export { initRound1 };
+
+export const submitRound1Answer = asyncHandler(async (req, res) => {
+  const teamId = req.teamId;
+  const { questionId, answer } = req.body;
+
+  if (!teamId) {
+    throw new ApiError(401, "Unauthorized");
+  }
+
+  if (!questionId || answer === undefined) {
+    throw new ApiError(400, "Question ID and answer are required");
+  }
+
+  const progress = await Round1Progress.findOne({ teamId });
+
+  if (!progress) {
+    throw new ApiError(400, "Round 1 not initialized");
+  }
+
+  const elapsed = Date.now() - progress.startedAt.getTime();
+  if (elapsed > ROUND_1_DURATION_MS) {
+    throw new ApiError(403, "Round 1 has ended");
+  }
+
+  if (progress.solvedQuestions.includes(questionId)) {
+    return res.json(
+      new ApiResponse(200, {
+        correct: true,
+        alreadySolved: true,
+        score: progress.score,
+      })
+    );
+  }
+
+  const question = await Round1Question.findById(questionId).select(
+    "+correctAnswer"
+  );
+
+  if (!question) {
+    throw new ApiError(404, "Round 1 question not found");
+  }
+
+  const normalizedAnswer = String(answer).trim().toLowerCase();
+  const expectedAnswer = String(question.correctAnswer).trim().toLowerCase();
+
+  if (normalizedAnswer !== expectedAnswer) {
+    return res.json(
+      new ApiResponse(200, { correct: false }, "Incorrect answer")
+    );
+  }
+
+  progress.solvedQuestions.push(questionId);
+  progress.score += POINTS_PER_CORRECT;
+
+  await progress.save();
+
+  return res.json(
+    new ApiResponse(
+      200,
+      {
+        correct: true,
+        score: progress.score,
+        pointsAwarded: POINTS_PER_CORRECT,
+      },
+      "Correct answer"
+    )
+  );
+});
