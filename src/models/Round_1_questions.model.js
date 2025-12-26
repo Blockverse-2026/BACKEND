@@ -28,6 +28,11 @@ const round1QuestionSchema = new mongoose.Schema(
       required: true,
     },
 
+    options: {
+      type: [String],
+      required: true,
+    },
+
     correctAnswer: {
       type: String,
       required: true,

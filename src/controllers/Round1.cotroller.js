@@ -22,7 +22,7 @@ export const getRound1Questions = asyncHandler(async (req, res) => {
     year: team.year,
   })
     .sort({ order: 1 })
-    .select("questionId order question pointReward");
+    .select("questionId order question options pointReward year");
 
   return res.json(
     new ApiResponse(200, {
@@ -35,15 +35,15 @@ export const getRound1Questions = asyncHandler(async (req, res) => {
 
 export const submitRound1Answer = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
-  const { questionId, answer } = req.body;
+  const { questionId, selectedOption } = req.body;
 
-  if (!questionId || !answer) {
-    throw new ApiError(400, "Question ID and answer are required");
+  if (!questionId || selectedOption === undefined || selectedOption === null) {
+    throw new ApiError(400, "Question ID and correct option is required");
   }
 
-  const question = await Round1Question.findOne({
-    questionId,
-  }).select("+correctAnswer");
+  const question = await Round1Question.findOne({ questionId }).select(
+    "+correctAnswer +pointReward"
+  );
 
   if (!question) {
     throw new ApiError(404, "Round 1 question not found");
@@ -57,14 +57,16 @@ export const submitRound1Answer = asyncHandler(async (req, res) => {
   if (progress.solvedQuestions.includes(questionId)) {
     return res.json(new ApiResponse(200, null, "Already solved"));
   }
-  const normalizedAnswer = answer.trim().toLowerCase();
+  const correct = question.correctAnswer.trim().toLowerCase();
+  const selected = selectedOption.trim().toLowerCase();
 
-  if (question.correctAnswer !== normalizedAnswer) {
-    throw new ApiError(400, "Incorrect Answer");
+  if (correct !== selected) {
+    return res.json(
+      new ApiResponse(200, { correct: false }, "Incorrect answer")
+    );
   }
 
   progress.solvedQuestions.push(questionId);
-
   if (progress.solvedQuestions.length === 50) {
     progress.completed = true;
   }
@@ -73,10 +75,35 @@ export const submitRound1Answer = asyncHandler(async (req, res) => {
 
   await Team.findByIdAndUpdate(teamId, {
     $inc: { totalPoints: question.pointReward },
-    $set: { "rounds.round1Completed": progress.completed },
+    // $set: { "rounds.round1Completed": progress.completed },
   });
 
   await emitLeaderboard(req);
 
   res.json(new ApiResponse(200, { points: question.pointReward }, "Correct"));
+});
+
+export const getRound1Progress = asyncHandler(async (req, res) => {
+  const teamId = req.user._id;
+
+  const progress = await Round1Progress.findOne({ teamId });
+
+  if (!progress) {
+    return res.json(
+      new ApiResponse(200, { solved: [], score: 0 }, "No progress yet")
+    );
+  }
+
+  const team = await Team.findById(teamId).select("totalPoints");
+
+  return res.json(
+    new ApiResponse(
+      200,
+      {
+        solved: progress.solvedQuestions,
+        score: team.totalPoints || 0,
+      },
+      "Round 1 progress"
+    )
+  );
 });
