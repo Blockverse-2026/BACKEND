@@ -2,12 +2,15 @@ import express from "express";
 
 import round1Routes from "./Round_1.route.js";
 import round2Routes from "./Round_2.route.js";
+import round3Routes from "./src/routes/round3.routes.js";
 import teamRoutes from "./team.route.js";
 
 const router = express.Router();
 
 router.use("/round1", round1Routes);
 router.use("/round2", round2Routes);
+router.use("/round3", round3Routes);
+
 router.use("/team", teamRoutes);
 
 export default router;
