@@ -1,0 +1,109 @@
+[
+  {
+    "bombNumber": 1,
+    "questionNumber": 1,
+    "questionText": "Bomb 1 – Question 1",
+    "correctAnswer": "answer1",
+    "points": 5
+  },
+  {
+    "bombNumber": 1,
+    "questionNumber": 2,
+    "questionText": "Bomb 1 – Question 2",
+    "correctAnswer": "answer2",
+    "points": 5
+  },
+  {
+    "bombNumber": 1,
+    "questionNumber": 3,
+    "questionText": "Bomb 1 – Question 3",
+    "correctAnswer": "answer3",
+    "points": 5
+  },
+  {
+    "bombNumber": 1,
+    "questionNumber": 4,
+    "questionText": "Bomb 1 – Question 4",
+    "correctAnswer": "answer4",
+    "points": 5
+  },
+  {
+    "bombNumber": 1,
+    "questionNumber": 5,
+    "questionText": "Bomb 1 – Question 5",
+    "correctAnswer": "answer5",
+    "points": 5
+  },
+
+  {
+    "bombNumber": 2,
+    "questionNumber": 1,
+    "questionText": "Bomb 2 – Question 1",
+    "correctAnswer": "answer6",
+    "points": 5
+  },
+  {
+    "bombNumber": 2,
+    "questionNumber": 2,
+    "questionText": "Bomb 2 – Question 2",
+    "correctAnswer": "answer7",
+    "points": 5
+  },
+  {
+    "bombNumber": 2,
+    "questionNumber": 3,
+    "questionText": "Bomb 2 – Question 3",
+    "correctAnswer": "answer8",
+    "points": 5
+  },
+  {
+    "bombNumber": 2,
+    "questionNumber": 4,
+    "questionText": "Bomb 2 – Question 4",
+    "correctAnswer": "answer9",
+    "points": 5
+  },
+  {
+    "bombNumber": 2,
+    "questionNumber": 5,
+    "questionText": "Bomb 2 – Question 5",
+    "correctAnswer": "answer10",
+    "points": 5
+  },
+
+  {
+    "bombNumber": 3,
+    "questionNumber": 1,
+    "questionText": "Bomb 3 – Question 1",
+    "correctAnswer": "answer11",
+    "points": 5
+  },
+  {
+    "bombNumber": 3,
+    "questionNumber": 2,
+    "questionText": "Bomb 3 – Question 2",
+    "correctAnswer": "answer12",
+    "points": 5
+  },
+  {
+    "bombNumber": 3,
+    "questionNumber": 3,
+    "questionText": "Bomb 3 – Question 3",
+    "correctAnswer": "answer13",
+    "points": 5
+  },
+  {
+    "bombNumber": 3,
+    "questionNumber": 4,
+    "questionText": "Bomb 3 – Question 4",
+    "correctAnswer": "answer14",
+    "points": 5
+  },
+  {
+    "bombNumber": 3,
+    "questionNumber": 5,
+    "questionText": "Bomb 3 – Question 5",
+    "correctAnswer": "answer15",
+    "points": 5
+  }
+]
