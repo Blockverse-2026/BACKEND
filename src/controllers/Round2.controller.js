@@ -7,28 +7,30 @@ import ApiResponse from "../utils/ApiResponse.js";
 import ApiError from "../utils/ApiError.js";
 import { emitLeaderboard } from "../utils/emitLeaderboard.js";
 import Round2Clues from "../models/round2_phase2_store_clue.model.js";
-import Round2_progressModel from "../models/Round2_progress.model.js";
 import { calculateTeamScore } from "../utils/calculateScore.js";
 
+/**
+ * GET PHASE 1 QUESTIONS
+ */
 export const getRound2Phase1Questions = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
 
-  const team = await Team.findById(teamId).select("year");
-  if (!team) {
-    throw new ApiError(404, "Team not Found");
-  }
+  const team = await Team.findById(teamId).select("year rounds");
+  if (!team) throw new ApiError(404, "Team not found");
 
   const progress =
     (await Round2Progress.findOne({ teamId })) ||
     (await Round2Progress.create({ teamId }));
 
+  if (team.rounds?.round2?.completed) {
+    throw new ApiError(403, "Round 2 already completed");
+  }
+
   if (progress.phase !== 1) {
     throw new ApiError(403, "Phase 1 completed");
   }
 
-  const questions = await Round2Question.find({
-    year: team.year,
-  })
+  const questions = await Round2Question.find({ year: team.year })
     .sort({ order: 1 })
     .select("questionId order question tokenReward");
 
@@ -37,10 +39,13 @@ export const getRound2Phase1Questions = asyncHandler(async (req, res) => {
       solvedCount: progress.solvedQuestions.length,
       tokens: progress.tokens,
       questions,
-    }),
+    })
   );
 });
 
+/**
+ * SUBMIT PHASE 1 ANSWER
+ */
 export const submitRound2Phase1Answer = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
   const { questionId, answer } = req.body;
@@ -49,9 +54,19 @@ export const submitRound2Phase1Answer = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Question ID and answer required");
   }
 
+  const team = await Team.findById(teamId);
+  if (!team) throw new ApiError(404, "Team not found");
+
+  if (team.rounds?.round2?.completed) {
+    return res.json(
+      new ApiResponse(400, null, "Round 2 already completed")
+    );
+  }
+
   const question = await Round2Question.findOne({ questionId }).select(
-    "+correctAnswer",
+    "+correctAnswer +tokenReward"
   );
+
   if (!question) throw new ApiError(404, "Question not found");
 
   const progress =
@@ -72,20 +87,37 @@ export const submitRound2Phase1Answer = asyncHandler(async (req, res) => {
   progress.solvedQuestions.push(questionId);
   progress.tokens += question.tokenReward;
 
-  if (progress.solvedQuestions.length === 20) {
+  const ROUND2_TOTAL = 20;
+
+  if (progress.solvedQuestions.length === ROUND2_TOTAL) {
     progress.phase = 2;
     progress.phase1Completed = true;
     progress.storeUnlocked = true;
+
+    const round2Score = await calculateTeamScore(teamId);
+
+    if (!team.rounds) {
+      team.rounds = {
+        round1: { score: 0, completed: false },
+        round2: { score: 0, completed: false },
+        round3: { score: 0, completed: false },
+      };
+    }
+
+    team.rounds.round2.score = round2Score;
+    team.rounds.round2.completed = true;
+
+    team.totalPoints =
+      (team.rounds?.round1?.score || 0) +
+      (team.rounds?.round2?.score || 0) +
+      (team.rounds?.round3?.score || 0);
+
+    await team.save();
+
+    await emitLeaderboard(req);
   }
 
   await progress.save();
-
-  // this line increase 5 because Round 2 does not affect Leader board anymore so all participants get 5 point to affect the leaderboard.
-  // await Team.findByIdAndUpdate(teamId, {
-  //   $inc: { totalPoints: 5 },
-  // });
-
-  await emitLeaderboard(req);
 
   return res.json(
     new ApiResponse(
@@ -94,27 +126,28 @@ export const submitRound2Phase1Answer = asyncHandler(async (req, res) => {
         tokens: progress.tokens,
         storeUnlocked: progress.storeUnlocked,
       },
-      "Correct answer",
-    ),
+      "Correct answer"
+    )
   );
 });
 
+/**
+ * GET STORE CLUES
+ */
 export const getStoreClues = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
 
   const team = await Team.findById(teamId).select("year");
   const progress = await Round2Progress.findOne({ teamId });
 
-  // if (!progress || !progress.storeUnlocked) {
-  //   throw new ApiError(403, "Store is locked. Complete Phase 1 first.");
-  // }
+  if (!progress) {
+    throw new ApiError(404, "Progress not found");
+  }
 
-  const allClues = await Round2Clues.find({
-    year: team.year,
-  });
+  const allClues = await Round2Clues.find({ year: team.year });
 
   const availableClues = allClues.filter(
-    (clue) => !progress.purchasedClues.includes(clue.clueId),
+    (clue) => !progress.purchasedClues.includes(clue.clueId)
   );
 
   return res.json(
@@ -124,11 +157,14 @@ export const getStoreClues = asyncHandler(async (req, res) => {
         tokensAvailable: progress.tokens,
         availableClues,
       },
-      "Store clues fetched",
-    ),
+      "Store clues fetched"
+    )
   );
 });
 
+/**
+ * BUY CLUE
+ */
 export const buyClue = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
   const { clueId } = req.body;
@@ -139,9 +175,9 @@ export const buyClue = asyncHandler(async (req, res) => {
 
   const progress = await Round2Progress.findOne({ teamId });
 
-  // if (!progress || !progress.storeUnlocked) {
-  //   throw new ApiError(403, "Store is locked");
-  // }
+  if (!progress) {
+    throw new ApiError(404, "Progress not found");
+  }
 
   const clue = await Round2Clues.findOne({ clueId });
 
@@ -168,27 +204,29 @@ export const buyClue = asyncHandler(async (req, res) => {
           title: clue.title,
         },
       },
-      "Clue purchased successfully",
-    ),
+      "Clue purchased successfully"
+    )
   );
 });
 
+/**
+ * GET ROUND 2 PROGRESS
+ */
 export const getRound2Progress = asyncHandler(async (req, res) => {
   const teamId = req.user._id;
 
   const progress = await Round2Progress.findOne({ teamId });
+  const team = await Team.findById(teamId);
 
-  if (!progress) {
+  if (!progress || !team) {
     return res.json(
       new ApiResponse(
         200,
         { solved: [], score: 0, tokens: 0 },
-        "No Progress Yet",
-      ),
+        "No Progress Yet"
+      )
     );
   }
-
-  const score = await calculateTeamScore(teamId);
 
   return res.json(
     new ApiResponse(
@@ -197,9 +235,10 @@ export const getRound2Progress = asyncHandler(async (req, res) => {
         solved: progress.solvedQuestions,
         tokens: progress.tokens,
         purchasedClues: progress.purchasedClues,
-        score,
+        roundCompleted: team.rounds?.round2?.completed || false,
+        score: team.rounds?.round2?.score || 0,
       },
-      "Round 2 Progress",
-    ),
+      "Round 2 Progress"
+    )
   );
 });

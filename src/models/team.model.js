@@ -37,10 +37,22 @@ const teamSchema = new mongoose.Schema(
       index: true,
     },
 
+    // ✅ UPDATED ROUNDS STRUCTURE
     rounds: {
-      round1Completed: { type: Boolean, default: false },
-      round2Completed: { type: Boolean, default: false },
-      round3Completed: { type: Boolean, default: false },
+      round1: {
+        score: { type: Number, default: 0 },
+        completed: { type: Boolean, default: false },
+      },
+
+      round2: {
+        score: { type: Number, default: 0 },
+        completed: { type: Boolean, default: false },
+      },
+
+      round3: {
+        score: { type: Number, default: 0 },
+        completed: { type: Boolean, default: false },
+      },
     },
   },
   { timestamps: true }
