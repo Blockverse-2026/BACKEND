@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import session from "express-session";
+import leaderboardRoutes from "./src/routes/leaderboard.route.js";
+
 // import {
 //   securityHeaders,
 //   apiLimiter,
@@ -57,6 +59,7 @@ app.use(
 app.get("/", (req, res) => {
   res.send("Blockverse Backend is running.....");
 });
+app.use("/api/leaderboard", leaderboardRoutes);
 
 app.use("/api", routes);
 app.use(errorHandler);
