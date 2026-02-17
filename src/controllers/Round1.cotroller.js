@@ -48,16 +48,15 @@ export const initRound1 = asyncHandler(async (req, res) => {
     });
   }
 
-  // const elapsed = Date.now() - new Date(progress.startedAt).getTime();
-  // const remainingTime = Math.max(ROUND1_DURATION_MS - elapsed, 0);
-  //
-  // if (remainingTime === 0 && progress.status !== "TIME_UP") {
-  //   progress.status = "TIME_UP";
-  //   progress.endedAt = new Date();
-  //   await progress.save();
-  // }
+  const elapsed = Date.now() - new Date(progress.startedAt).getTime();
 
-  const remainingTime = ROUND1_DURATION_MS;
+  const remainingTime = Math.max(ROUND1_DURATION_MS - elapsed, 0);
+
+  if (remainingTime === 0 && progress.status !== "TIME_UP") {
+    progress.status = "TIME_UP";
+    progress.endedAt = new Date();
+    await progress.save();
+  }
 
   return res.json(
     new ApiResponse(200, {
