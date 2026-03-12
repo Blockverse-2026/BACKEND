@@ -29,6 +29,8 @@ export const initRound3 = asyncHandler(async (req, res) => {
       "_id bombNumber questionNumber questionText options points",
     );
 
+    console.log("QUESTIONS FROM DB:", questions[0]);
+    
     if (!questions.length) {
       throw new ApiError(500, "Round 3 questions not configured");
     }
