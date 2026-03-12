@@ -16,6 +16,10 @@ const questionProgressSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        options: {
+        type: [String],   
+        default: [],
+        },
 
         points: {
             type: Number,
