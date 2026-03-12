@@ -71,4 +71,5 @@ round3QuestionSchema.index(
   { unique: true }
 );
 
-export default mongoose.model("Round3Question", round3QuestionSchema);
+const Round3Question = mongoose.model("Round3Questions", round3QuestionSchema);
+export default Round3Question;
