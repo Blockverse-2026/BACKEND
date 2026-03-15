@@ -9,7 +9,7 @@ import asyncHandler from "../utils/asyncHandler.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import ApiError from "../utils/ApiError.js";
 import { emitLeaderboard } from "../utils/emitLeaderboard.js";
-// import { calculateTeamScore } from "../utils/calculateScore.js";
+import { calculateTeamScore } from "../utils/calculateScore.js";
 
 export const initRound2 = asyncHandler(async (req, res) => {
   const teamId = req.user?._id;

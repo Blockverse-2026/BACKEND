@@ -1,39 +1,75 @@
 import mongoose from "mongoose";
 
+const questionProgressSchema = new mongoose.Schema({
+  questionId: mongoose.Schema.Types.ObjectId,
+
+  questionText: String,
+
+  options: [String],
+
+  tokenReward: Number,
+
+  solved: {
+    type: Boolean,
+    default: false
+  },
+
+  attempts: {
+    type: Number,
+    default: 0
+  }
+});
+
 const round2ProgressSchema = new mongoose.Schema(
   {
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Team",
-      unique: true,
+      required: true
+    },
+
+    status: {
+      type: String,
+      enum: ["NOT_STARTED", "IN_PROGRESS", "COMPLETED", "TIME_UP"],
+      default: "NOT_STARTED"
     },
 
     phase: {
       type: Number,
-      enum: [1, 2],
-      default: 1,
+      default: 1
     },
-    solvedQuestions: [String],
+
     tokens: {
       type: Number,
-      default: 0,
+      default: 0
     },
-    purchasedClues: [String],
 
-    phase1Completed: {
-      type: Boolean,
-      default: false,
-    },
+    questions: [questionProgressSchema],
+
+    solvedQuestions: [
+      {
+        type: mongoose.Schema.Types.ObjectId
+      }
+    ],
+
+    purchasedClues: [
+      {
+        type: mongoose.Schema.Types.ObjectId
+      }
+    ],
+
     storeUnlocked: {
       type: Boolean,
-      default: false,
+      default: false
     },
-    activeQuestion: {
-      questionId: String,
-      startedAt: Date,
-    },
+
+    startedAt: Date,
+
+    endedAt: Date
   },
-  { timestamps: true }
+  {
+    timestamps: true
+  }
 );
 
 export default mongoose.model("Round2Progress", round2ProgressSchema);
